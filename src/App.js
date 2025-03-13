@@ -75,6 +75,20 @@ function App() {
     setTodos(newTodos);
   };
 
+  const saveToFile = () => {
+    const data = localStorage.getItem("todos");
+    if (!data) return;
+
+    const blob = new Blob([data], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement("a"); 
+    downloadLink.href = url;
+    downloadLink.download = "todos.txt";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+
   return (
     <div className="app">
       <div className="todo-list">
@@ -87,6 +101,7 @@ function App() {
             removeTodo={removeTodo}
           />
         ))}
+        <button onClick={saveToFile}>Save to File</button>
         <TodoForm addTodo={addTodo} />
       </div>
     </div>
