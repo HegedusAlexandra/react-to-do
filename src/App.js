@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./App.css";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
@@ -59,10 +59,10 @@ function App() {
     }
   }, [todos]);
 
-  const addTodo = (text) => {
+  const addTodo = useCallback((text) => {
     const newTodos = [...todos, { text, isCompleted: false }];
     setTodos(newTodos);
-  };
+  },[todos])
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
