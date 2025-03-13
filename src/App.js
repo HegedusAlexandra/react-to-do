@@ -9,8 +9,8 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
     >
       {todo.text}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
-        <button onClick={() => removeTodo(index)}>x</button>
+        <button onClick={() => completeTodo(index)}>completed</button>
+        <button onClick={() => removeTodo(index)}>delete</button>
       </div>
     </div>
   );
@@ -27,7 +27,8 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='todo' onSubmit={handleSubmit}>
+      <p> ÚJ FELADAT: </p>
       <input
         type="text"
         className="input"

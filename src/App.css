@@ -7,8 +7,9 @@
 .todo-list {
   background: #e8e8e8;
   border-radius: 4px;
-  max-width: 400px;
   padding: 5px;
+  width: 60%;
+  margin: auto;
 }
 
 .todo {
@@ -21,4 +22,8 @@
   justify-content: space-between;
   margin-bottom: 6px;
   padding: 3px 10px;
+}
+
+.input{
+  width: 90%;
 }
